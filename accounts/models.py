@@ -25,5 +25,14 @@ class comments(models.Models) :
 class volunteer_work(models.Models) :
     institute = models.Forienkey
     description = models.CharField
-    release_date = models.DateTimeField (auto_now_add=True)
+    release_date = models.DateTimeField (null=True)
     submission_date = models.DateTimeField (auto_now_add=True)
+    work_choices = (
+    ('', '--'),
+    ('R', 'تغطية إعلامية'),
+    ('J', 'تنظيم ميداني'),
+    ('A', 'تقديم ورشة عمل'),
+    ('S', 'إدارة'),
+)
+    city = models.CharField("العمل التطوعي", max_length=1,
+                            choices=work_choices)
